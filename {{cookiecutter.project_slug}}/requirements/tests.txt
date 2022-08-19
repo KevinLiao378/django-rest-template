@@ -1,0 +1,6 @@
+-r base.txt
+
+black==22.6.0  # https://github.com/psf/black
+coverage==6.4.4  # https://github.com/nedbat/coveragepy
+flake8==5.0.4  # https://github.com/PyCQA/flake8
+flake8-isort==4.2.0  # https://github.com/gforcada/flake8-isort
