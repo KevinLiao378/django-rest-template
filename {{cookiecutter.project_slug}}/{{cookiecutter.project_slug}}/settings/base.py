@@ -10,16 +10,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # CORE SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
+# https://docs.djangoproject.com/en/stable/ref/settings/#secret-key
 SECRET_KEY = config(
     "SECRET_KEY",
     default="django-insecure${{ cookiecutter.project_slug }}.settings.local",
 )
-# https://docs.djangoproject.com/en/dev/ref/settings/#debug
+# https://docs.djangoproject.com/en/stable/ref/settings/#debug
 DEBUG = config("DEBUG", default=False, cast=bool)
-# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+# https://docs.djangoproject.com/en/stable/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="127.0.0.1,localhost", cast=Csv())
-# https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-CSRF_TRUSTED_ORIGINS
+# https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = config(
     "CSRF_TRUSTED_ORIGINS", default="https://127.0.0.1", cast=Csv()
 )
@@ -42,35 +42,34 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     "{{ cookiecutter.project_slug }}.apps.accounts",
-    "{{ cookiecutter.project_slug }}.apps.core",
 ]
-# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+# https://docs.djangoproject.com/en/stable/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-# https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
+# https://docs.djangoproject.com/en/stable/ref/settings/#root-urlconf
 ROOT_URLCONF = "{{ cookiecutter.project_slug }}.urls"
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 INTERNAL_IPS = ["127.0.0.1"]
-# https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
+# https://docs.djangoproject.com/en/stable/ref/settings/#wsgi-application
 WSGI_APPLICATION = "{{ cookiecutter.project_slug }}.wsgi.application"
-# https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
+# https://docs.djangoproject.com/en/stable/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "accounts.User"
 
 # ADMIN
 # --------------------------------------------------
 # Django Admin URL.
 ADMIN_URL = "admin/"
-# https://docs.djangoproject.com/en/dev/ref/settings/#admins
+# https://docs.djangoproject.com/en/stable/ref/settings/#admins
 ADMINS = [("""{{cookiecutter.author_name}}""", "{{cookiecutter.email}}")]
-# https://docs.djangoproject.com/en/dev/ref/settings/#managers
+# https://docs.djangoproject.com/en/stable/ref/settings/#managers
 MANAGERS = ADMINS
 
 # ==================================================
 # MIDDLEWARE SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#middleware
+# https://docs.djangoproject.com/en/stable/ref/settings/#middleware
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
@@ -87,7 +86,7 @@ MIDDLEWARE = [
 # TEMPLATES SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#templates
+# https://docs.djangoproject.com/en/stable/ref/settings/#templates
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -108,7 +107,7 @@ TEMPLATES = [
 # DATABASES SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# https://docs.djangoproject.com/en/stable/ref/settings/#databases
 DATABASES = {
     "default": dj_database_url.config(
         default=config("DATABASE_URL", default="sqlite:///db.sqlite3"),
@@ -120,7 +119,7 @@ DATABASES = {
 # AUTHENTICATION AND AUTHORIZATION SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/stable/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -141,17 +140,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # I18N AND L10N SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#language-code
+# https://docs.djangoproject.com/en/stable/ref/settings/#language-code
 LANGUAGE_CODE = config("LANGUAGE_CODE", default="zh-hans")
 
 TIME_ZONE = config("TIME_ZONE", default="Asia/Shanghai")
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
+# https://docs.djangoproject.com/en/stable/ref/settings/#use-i18n
 USE_I18N = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
+# https://docs.djangoproject.com/en/stable/ref/settings/#use-l10n
 USE_L10N = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
+# https://docs.djangoproject.com/en/stable/ref/settings/#use-tz
 USE_TZ = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
+# https://docs.djangoproject.com/en/stable/ref/settings/#locale-paths
 LOCALE_PATHS = [BASE_DIR / "locale"]
 
 
@@ -159,13 +158,13 @@ LOCALE_PATHS = [BASE_DIR / "locale"]
 # STATIC FILES SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+# https://docs.djangoproject.com/en/stable/ref/settings/#static-url
 STATIC_URL = "/static/"
-# https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = BASE_DIR.parent.parent / "staticfiles"
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+# https://docs.djangoproject.com/en/stable/ref/settings/#static-root
+STATIC_ROOT = BASE_DIR.parent / "static"
+# https://docs.djangoproject.com/en/stable/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [BASE_DIR / "static"]
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+# https://docs.djangoproject.com/en/stable/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -175,10 +174,10 @@ STATICFILES_FINDERS = (
 # MEDIA FILES SETTINGS
 # ==================================================
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+# https://docs.djangoproject.com/en/stable/ref/settings/#media-url
 MEDIA_URL = "/media/"
-# https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = BASE_DIR.parent.parent / "media"
+# https://docs.djangoproject.com/en/stable/ref/settings/#media-root
+MEDIA_ROOT = BASE_DIR.parent / "media"
 
 # ==================================================
 # THIRD-PARTY SETTINGS
