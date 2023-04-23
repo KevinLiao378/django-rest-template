@@ -7,4 +7,9 @@
 1. 安装 cookiecutter
 `pip install -U cookiecutter`
 2. 基于本仓库生成项目模板
-`cookiecutter https://github.com/KevinLiao378/django-rest-template`
+```shell
+# 基于在线仓库生成
+cookiecutter https://github.com/KevinLiao378/django-rest-template
+# 或者先clone下来，再基于本地仓库生成
+cookiecutter django-rest-template/
+```

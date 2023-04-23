@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "taggit",
+    "drf_yasg",
 ]
 LOCAL_APPS = [
     "{{ cookiecutter.project_slug }}.apps.accounts",
@@ -202,3 +203,11 @@ CORS_ALLOWED_ORIGINS = config(
     cast=Csv(),
 )
 CORS_URLS_REGEX = r"^/api/.*$"
+
+# drf-yasg
+# https://github.com/axnsan12/drf-yasg
+SWAGGER_SETTINGS = {
+    "DEFAULT_MODEL_RENDERING": "example",
+    "LOGIN_URL": "/admin/login/",
+    "LOGOUT_URL": "/admin/logout/",
+}
